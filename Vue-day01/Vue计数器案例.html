@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue计数器案例</title>
+    <script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>当前计数: {{counter}}</h2>
+        <button v-on:click="increment"> + </button>
+        <button v-on:click="subtraction"> - </button>
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                counter: 0
+            },
+            methods: {
+                // 加号函数事件
+                increment: function () {
+                    console.log("正在点击加号");
+                    this.counter++;
+                },
+                // 减号函数事件
+                subtraction: function () {
+                    console.log("正在点击减号");
+                    this.counter--;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>条件判断</title>
+    <script src="../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2 @click="isClick" v-if="true">{{message}}</h2>
+        <h2 @click="isClick" v-if="false">{{message}}</h2>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word',
+                isShow: true
+            },
+            methods: {
+                isClick: function () {
+                    console.log('aaaaaaaa');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>遍历数组</title>
+    <script src="../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <!-- 在遍历对象的过程中,如果只是获取一个值，那么获取到的时 value  -->
+            <li v-for="item in info">{{item}}</li>
+        </ul>
+
+        <ul>
+            <!-- 获取 key 和 value  -->
+            <li v-for="(value,key) in info">{{key}} : {{value}}</li> 
+        </ul>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word',
+                info: {
+                    name: "Bin",
+                    age: 10
+                }
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

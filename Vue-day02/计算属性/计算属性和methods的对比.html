@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算属性和methods的对比</title>
+    <script src="../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- methods -->
+        <h1>{{getFullName()}}</h1>
+        <h1>{{getFullName()}}</h1>
+        <h1>{{getFullName()}}</h1>
+        <h1>{{getFullName()}}</h1>
+       
+        <!-- computed -->
+        <h2> {{fullName}} </h2>
+        <h2> {{fullName}} </h2>
+        <h2> {{fullName}} </h2>
+        <h2> {{fullName}} </h2>
+
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word',
+                firstName: "Vue",
+                lastName: ".js"
+            },
+            methods: {
+                getFullName: function () {
+                    console.log("methods 输出··········");
+                }
+            },
+            computed: {
+                fullName: function () {
+                    console.log("计算属性输出···········");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue模板文件</title>
+    <script src="../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="isUser">
+            <label for="user">
+                账号登录 <input type="text" id="user">
+            </label>
+        </div>
+        <div v-else>
+            <label for="email">
+                邮箱登录 <input type="text">
+            </label>
+        </div>
+        <button @click="isUser=!isUser">切换登录类型</button>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word',
+                isUser: true
+            },
+            methods: {
+                /* changeStatus:function(){
+                    console.log('按钮点击');
+                    return this.isUser=!this.isUser
+                } */
+            }
+        });
+    </script>
+</body>
+
+</html>

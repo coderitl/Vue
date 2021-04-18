@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加添加样式</title>
+    <script src="../../vue.js"></script>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(movie,index) in movies" :class="{active: index===currIndex}" @click="addClass(index)">{{movie}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word',
+                currIndex: 0,
+                movies: ['A', 'B', 'C']
+            },
+            methods: {
+                addClass(index) {
+                    console.log('点击事件触发');
+                    this.currIndex = index;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

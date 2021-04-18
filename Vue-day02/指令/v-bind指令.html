@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue模板文件</title>
+    <script src="../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        
+      <h1>   <a :href="url">百度一下</a> </h1>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word',
+                imgUrl: "https://gitee.com/wang_hong_bin/repo-bin/raw/master/IMG_0021(20210418-000849).PNG",
+                url: "https://www.baidu.com"
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

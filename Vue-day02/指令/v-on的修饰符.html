@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue模板文件</title>
+    <script src="../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app" @click="divClick">
+        <!-- stop -->
+        <button @click.stop="btnClick">按钮</button>
+        <!-- prevent -->
+        <form action="https://www.baidu.com">
+            <input type="submit" value="提交按钮" @click.prevent="submitClick">
+        </form>
+        <a href="https://www.baidu.com" @click.prevent="noHref">百度一下,这里不会发生跳转</a>
+        <!-- 监听键帽点击 -->
+        <input type="text" @keyup.enter="keyUp">
+
+        <!-- once -->
+        <button @click.once="onceClick">点击一次就不能再触发监听事件了</button>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word'
+            },
+            methods: {
+                divClick: function () {
+                    console.log('divClick·······');
+                },
+                btnClick: function () {
+                    console.log('btnClick··············');
+                },
+                submitClick: function () {
+                    console.log('打印不提交····');
+                },
+                noHref: function () {
+                    console.log('不会发生跳转的超链接··········');
+                },
+                keyUp: function () {
+                    console.log('enter键抬起事件触发');
+                },
+                onceClick: function () {
+                    console.log('触发事件一次···········');
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>

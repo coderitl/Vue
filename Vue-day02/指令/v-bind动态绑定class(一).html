@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue模板文件</title>
+    <style>
+        .active {
+            color: red;
+        }
+
+        .line {
+            background-color: blue;
+        }
+    </style>
+    <script src="../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1 :class="{active:isActive,line:isLine}"> {{message}}</h1>
+        <h1 :class="getClass()"> {{message}}</h1>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'HelloWord',
+                isActive: true,
+                isLine: true
+            },
+            methods: {
+                getClass: function () {
+                    return {
+                        active: this.isActive,
+                        line: this.isLine
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

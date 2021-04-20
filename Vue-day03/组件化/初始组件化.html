@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>初始组件化</title>
+    <script src="../../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 组件化开发 -->
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+    </div>
+
+    <script>
+        // 1. 创建组件构造器对象
+        const cpnContructor = Vue.extend({
+            template: `
+            <div>
+                <h2> 哈哈哈1111</h2>
+                <p> 哈哈哈1111</p>
+            </div>
+            `
+        });
+        // 2. 注册组件
+        // Vue.component('组件名称','绑定模板');
+        Vue.component('my-cpn', cpnContructor);
+        // 3. 使用组件
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word'
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

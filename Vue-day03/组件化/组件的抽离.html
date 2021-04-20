@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件的抽离</title>
+    <script src="../../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn1></cpn1>
+        <cpn2></cpn2>
+    </div>
+
+    <template id="cpn2">
+        <h2> template 模板</h2>
+    </template>
+
+    <script type="text/x-template" id="cpnT">
+        <div>
+            <h1> 模板抽离 </h1>
+        </div>
+    </script>
+    <script>
+        // 组件化: 语法糖
+        Vue.component('cpn1', {
+            template: '#cpnT'
+        });
+
+        Vue.component('cpn2', {
+            template: '#cpn2',
+            data() {
+                return {
+                    title: "aaa"
+                }
+            }
+        });
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word'
+            },
+            methods: {},
+            components: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

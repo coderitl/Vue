@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件的data必须是函数</title>
+    <script src="../../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+    </div>
+
+    <template id="cpnT">
+        <div>
+            <h1> {{title}} </h1>
+        </div>
+    </template>
+    <script>
+        // 
+        Vue.component('cpn', {
+            template: '#cpnT',
+            data() {
+                return {
+                    title: "Title"
+                }
+            }
+        });
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word'
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

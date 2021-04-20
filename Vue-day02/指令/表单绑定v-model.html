@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单绑定v-model</title>
+    <script src="../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="message">
+        <h1> {{message}}</h1>
+
+        <div> ------------------------ </div>
+        <input type="text" :value="message" v-on:input="valueChange">
+        <h1> {{message}}</h1>
+
+        <form action="#">
+            <label for="agree">
+                <input type="checkbox" name="" id="agree" v-model="isAgree"><a href="javascript:;">查看许可协议</a>
+            </label>
+            <h1>协议许可: {{isAgree}}</h1>
+            <button :disabled="!isAgree">下一步</button>
+        </form>
+
+        <input type="checkbox" v-model="hobbies" value="javascript">javascript
+        <input type="checkbox" v-model="hobbies" value="java">java
+        <input type="checkbox" v-model="hobbies" value="c#">c#
+        <input type="checkbox" v-model="hobbies" value="python">python
+        <h2>您选择的兴趣是: {{hobbies}}</h2>
+
+
+        <!-- 值绑定  -->
+        <label v-for="item in originHobbies" :for="item">
+            <input type="checkbox" :value="item" v-model="hobbies">{{item}}
+        </label>
+
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word',
+                isAgree: false,
+                hobbies: [],
+                originHobbies: ['篮球', '足球']
+            },
+            methods: {
+                valueChange(event) {
+                    this.message = event.target.value;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 高阶函数 </title>
+    <script src="../../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word'
+            },
+            methods: {}
+        });
+
+        // 1. filter 高阶函数
+        const nums = [100, 110, 89, 43, 299];
+        console.log('原: ', nums);
+        let filterNums = nums.filter((n) => {
+            return n > 100
+        });
+        console.log(filterNums);
+        // 2. map 高阶函数
+        let mapNums = nums.map(function (n) {
+            return n * 2
+        })
+        console.log("乘积: ", mapNums);
+        // 3. reduce 函数的使用
+        // reduce 作用对数组中所有内容进行汇总 
+        var apps = [1, 2, 3, 4]
+        let total = apps.reduce(function (preValue, n) {
+            return preValue + n
+        }, 0);
+        console.log(total);
+
+        // 综合使用高阶函数
+        let newArrays = [900, 120, 89, 54, 210]
+        let newA = newArrays.filter((n) => {
+            return n < 100 // 过滤掉小于 100 的数
+        }).map((n) => {
+            return n * 2 // 对新数组内容*2
+        }).reduce((preValue, n) => {
+            return preValue + n
+        }, 0)
+        console.log(newA);
+
+        // 简化操作
+        {
+            let newArrays = [900, 120, 89, 54, 210];
+            let newA = newArrays.filter(n => n < 100).map(n => n * 2).reduce((preValue, n) => preValue + n)
+            console.log(newA);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件通信-父组件向子组件传递数据</title>
+    <script src="../../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>父组件</h1>
+        <cpn :ccourse="course"> </cpn>
+    </div>
+    <template id="cpnT">
+        <div>
+            <h1>子组件</h1>
+            <h2> {{ccourse}}</h2>
+        </div>
+    </template>
+
+    <script>
+        // 建立新的子组件 
+        const cpn = {
+            template: '#cpnT',
+            // 父传子: props
+            props: ['ccourse']
+        }
+        // app 作为父组件
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word',
+                // 父组件数据
+                course: ['JavaScript', 'Java', 'Python']
+            },
+            methods: {},
+            components: {
+                cpn
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件通信-父传子(驼峰标识)</title>
+    <script src="../../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用子组件 在进行父子组件通信 -->
+        <cpn :cinfo="info"></cpn>
+    </div>
+    <template id="cpnT">
+        <div>
+            <h2> 子组件 </h2>
+            <h1> 子组件使用: {{cinfo}}</h1>
+        </div>
+    </template>
+    <script>
+        const cpn = {
+            template: "#cpnT",
+            props: {
+                cinfo: {
+                    type: Object,
+                    default(){
+                        return {}
+                    }
+                }
+            }
+        };
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word',
+                info: {
+                    name: "张三",
+                    age: 18,
+                    sex: "男"
+                }
+            },
+            methods: {},
+            components: {
+                // Es6 对象字面量增强写法
+                cpn
+            }
+        });
+    </script>
+</body>
+
+</html>

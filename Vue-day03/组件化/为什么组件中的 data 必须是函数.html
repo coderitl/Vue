@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>为什么组件中的 data 必须是函数</title>
+    <script src="../../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+
+        <cpn></cpn>
+
+        <cpn></cpn>
+
+        <cpn></cpn>
+    </div>
+    <template id="cpnT">
+        <div>
+            <h1>计数器: {{count}}</h1>
+            <button @click="increment"> + </button>
+            <button @click="descment"> - </button>
+        </div>
+    </template>
+    <script>
+        const obj = {
+            count: 1
+        }
+        // 注册组件
+        Vue.component('cpn', {
+            template: '#cpnT',
+            data() {
+                return obj;
+            },
+            methods: {
+                increment() {
+                    this.count++
+                },
+                descment() {
+                    this.count--
+                }
+            }
+        });
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word'
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

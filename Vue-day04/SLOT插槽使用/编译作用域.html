@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>编译作用域</title>
+    <script src="../../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 默认展示方式 -->
+        <cpn></cpn>
+        <!-- 获取子组件数据 -->
+        <cpn>
+            <template slot-scope="slot">
+                <span>{{slot.data.join(' - ')}}</span>
+            </template>
+        </cpn>
+    </div>
+    <template id="cpnT">
+        <div>
+            <h1> 子组件</h1>
+            <slot :data="languages">
+                <!-- 默认展示方式 -->
+                <ul>
+                    <li v-for="item in languages">{{item}}</li>
+                </ul>
+            </slot>
+        </div>
+    </template>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            components: {
+                cpn: {
+                    template: "#cpnT",
+                    data() {
+                        return {
+                            languages: ['JavaScript', 'Java', 'MYSQL', 'Mongodb']
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

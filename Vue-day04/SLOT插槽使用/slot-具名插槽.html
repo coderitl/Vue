@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slot-具名插槽</title>
+    <script src="../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn> <span slot="right">我从右边变为其他了</span></cpn>
+    </div>
+    <template id="cpnT">
+        <div>
+            <h1> 聚名插槽的使用</h1>
+            <slot name="left"> 左侧</slot>
+            <slot name="center">中间 </slot>
+            <slot name="right"> 右侧</slot>
+        </div>
+    </template>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word'
+            },
+            methods: {},
+            components: {
+                cpn: {
+                    template: "#cpnT"
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

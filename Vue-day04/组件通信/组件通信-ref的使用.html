@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件通信-ref的使用</title>
+    <script src="../../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn ref="refName"></cpn>
+        <button @click="btnClick"> 按钮 </button>
+    </div>
+    <template id="cpnT">
+        <div>
+            <h1> 我是子组件 </h1>
+        </div>
+    </template>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Word'
+            },
+            methods: {
+                btnClick() {
+                    console.log('showMessage');
+                    console.log(this.$refs.refName.cpnValue);
+                }
+            },
+            components: {
+                cpn: {
+                    template: "#cpnT",
+                    data() {
+                        return {
+                            cpnValue: "子组件Value将被获取"
+                        }
+                    },
+                    methods: {
+
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

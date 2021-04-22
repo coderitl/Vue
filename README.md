@@ -18,7 +18,6 @@
   git push webpack webpackBug
   ```
 
-  
 
 ###  webpack 的具体使用
 
@@ -73,7 +72,7 @@
 
 ```bash
 
-main.js 进行 文件依赖  配置文件中配置时,注意 use 顺序
+main.js 进行 文件依赖  webpack.config.js配置文件中配置时,注意 use 顺序,[从右至左]
 
 ```
 

@@ -5,3 +5,6 @@ const {
 add(20, 30);
 // 使用 css 依赖
 require('./css/normal.css');
+
+// 依赖 less 文件
+require('./css/special.less');
